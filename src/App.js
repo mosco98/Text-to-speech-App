@@ -14,7 +14,7 @@ import SaveModal from './Components/SaveModal'
 import SideDrawer from './Components/SideDrawer/SideDrawer'
 import Context from './Utils/Context'
 
-const server = 'https://afternoon-anchorage-75243.herokuapp.com/'
+const server = 'https://afternoon-anchorage-75243.herokuapp.com'
 
 export default class App extends Component {
   constructor() {
