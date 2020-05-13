@@ -12,10 +12,10 @@ const Register = () => {
   return (
     <Context.Consumer>
       {(context) => {
-        const { inputHandler, userRegistrationHandler } = context
+        const { inputHandler, userRegistrationHandler, onRouteChange } = context
         return (
           <div className="layout p-2 position-fixed vh-100 w-100">
-            <Link to="/" className="back-arrow mt-4 ml-2 p-2">
+            <Link to="/" className="back-arrow mt-4 ml-2 p-2" onClick={onRouteChange}>
               <ArrowLeft size={30} />
             </Link>
             <div className="container d-flex flex-column">
@@ -76,7 +76,11 @@ const Register = () => {
                   </form>
 
                   <p className="text-center">
-                    Already have an account? <Link to="/login">Sign in</Link>.
+                    Already have an account?{' '}
+                    <Link to="/login" onClick={onRouteChange}>
+                      Sign in
+                    </Link>
+                    .
                   </p>
                 </div>
               </div>

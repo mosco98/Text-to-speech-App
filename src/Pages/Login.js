@@ -12,10 +12,10 @@ const Login = () => {
   return (
     <Context.Consumer>
       {(context) => {
-        const { inputHandler, userLoginHandler } = context
+        const { inputHandler, userLoginHandler, onRouteChange } = context
         return (
           <div className="layout p-2 position-fixed vh-100 w-100">
-            <Link to="/" className="back-arrow mt-4 ml-2 p-2">
+            <Link to="/" className="back-arrow mt-4 ml-2 p-2" onClick={onRouteChange}>
               <ArrowLeft size={30} />
             </Link>
             <div className="container d-flex flex-column p-3">
@@ -64,7 +64,11 @@ const Login = () => {
                   </form>
 
                   <p className="text-center">
-                    Don't have an account yet? <Link to="/register">Sign up</Link>.
+                    Don't have an account yet?{' '}
+                    <Link to="/register" onClick={onRouteChange}>
+                      Sign up
+                    </Link>
+                    .
                   </p>
                 </div>
               </div>

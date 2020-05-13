@@ -19,8 +19,8 @@ const SideDrawer = ({ closeSideDrawer, showSideDrawer, isLoggedIn, showLogoutMod
         <div
           className={
             isLoggedIn
-              ? 'w-100 h-100 d-flex flex-column justify-content-around'
-              : 'w-100 h-100 d-flex flex-column justify-content-start'
+              ? 'w-100 h-75 d-flex flex-column justify-content-start'
+              : 'w-100 h-75 d-flex flex-column justify-content-start'
           }>
           {isLoggedIn ? (
             <ul className="list-group">
@@ -46,6 +46,11 @@ const SideDrawer = ({ closeSideDrawer, showSideDrawer, isLoggedIn, showLogoutMod
                 onClick={closeSideDrawer}>
                 <Settings size={20} /> <span className="ml-2">Settings</span>
               </li>
+              <li
+                className="list-group-item border-0 side-nav-items rounded-0 p-3 d-flex align-items-center justify-content-start my-1 text-black-50"
+                onClick={showLogoutModalHandler}>
+                <LogOut size={20} /> <span className="ml-2">Sign out</span>
+              </li>
             </ul>
           ) : (
             <ul className="list-group mt-10">
@@ -62,12 +67,6 @@ const SideDrawer = ({ closeSideDrawer, showSideDrawer, isLoggedIn, showLogoutMod
                 Sign up
               </Link>
             </ul>
-          )}
-
-          {isLoggedIn && (
-            <div className="mt-15 w-100 d-flex align-items-center justify-content-end">
-              <LogOut className="logout-btn" size={20} onClick={showLogoutModalHandler} />
-            </div>
           )}
         </div>
       </div>

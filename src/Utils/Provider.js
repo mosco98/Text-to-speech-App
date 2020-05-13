@@ -206,6 +206,14 @@ class Provider extends Component {
     })
   }
 
+  onRouteChange = () => {
+    this.setState({
+      err: false,
+      errMsg: '',
+      showAlert: false
+    })
+  }
+
   render() {
     return (
       <Context.Provider
@@ -222,7 +230,8 @@ class Provider extends Component {
           userLogoutHandler: this.userLogoutHandler,
           showLogoutModalHandler: this.showLogoutModalHandler,
           closeLogoutModalHandler: this.closeLogoutModalHandler,
-          closeAlertHandler: this.closeAlertHandler
+          closeAlertHandler: this.closeAlertHandler,
+          onRouteChange: this.onRouteChange
         }}>
         {this.props.children}
       </Context.Provider>

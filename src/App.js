@@ -26,7 +26,7 @@ export default class App extends Component {
       errMsg: '',
       converted: false,
       options: [],
-      isLoading: true,
+      isLoading: false,
       audioUrl: '',
       showProcessModal: false,
       converting: false
@@ -34,7 +34,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.getVoices()
+    // this.getVoices()
   }
 
   getVoices = () => {

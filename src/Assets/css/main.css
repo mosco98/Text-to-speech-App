@@ -37,7 +37,7 @@ footer {
 }
 
 .convert-field {
-  min-width: 400px;
+  min-width: 370px;
 }
 
 .result-ctn {
@@ -116,11 +116,12 @@ footer {
 
 .custom-modal {
   position: fixed;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1000000;
 }
 .custom-modal-form {
-  /* background: red; */
+  background: black;
+  border-radius: 5px;
   min-width: 350px;
   border: 1px solid rgba(225, 225, 225, 0.1);
 }
