@@ -26,7 +26,7 @@ export default class App extends Component {
       errMsg: '',
       converted: false,
       options: [],
-      isLoading: false,
+      isLoading: true,
       audioUrl: '',
       showProcessModal: false,
       converting: false
@@ -34,7 +34,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // this.getVoices()
+    this.getVoices()
   }
 
   getVoices = () => {
@@ -56,6 +56,18 @@ export default class App extends Component {
 
   convertText = () => {
     const { text, selectedVoice } = this.state
+    if (text === '') {
+      return this.setState({
+        error: true,
+        errMsg: 'Please add a text to convert'
+      })
+    }
+    if (selectedVoice === '') {
+      return this.setState({
+        error: true,
+        errMsg: 'Please select a voice'
+      })
+    }
     this.setState({ converting: true })
     axios
       .post(`${server}/convert`, { text, selectedVoice })

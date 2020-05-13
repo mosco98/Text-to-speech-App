@@ -49,6 +49,7 @@ export default class Library extends Component {
     const filteredArray = audios.filter((audio) => {
       return audio.id === audioId
     })
+    // eslint-disable-next-line array-callback-return
     filteredArray.map((audio) => {
       const nowPlayingUrl = audio.url
       const nowPlayingTitle = audio.title
@@ -85,25 +86,31 @@ export default class Library extends Component {
                 </div>
               ) : (
                 <div className="w-50 p-2 container library-items overflow-scroll mb-10">
-                  <h3 className="text-center">Saved Conversions</h3>
-                  <div className="h-auto w-100 p-6">
-                    <ul className="list-group w-100">
-                      {audios.map((audio) => (
-                        <li
-                          className="list-group-item my-3 border rounded d-flex align-items-center justify-content-between p-4 row"
-                          key={audio.id}
-                          style={{ cursor: 'pointer' }}>
-                          <div className="d-flex align-items-center justify-content-between  col-10 p-0">
-                            <span className="text-truncate" title={audio.title}>
-                              {audio.title}
-                            </span>
-                            <Headphones id={audio.id} size={18} onClick={this.playAudio} />
-                          </div>
-                          <MoreVertical className="col-2" size={20} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* <h3 className="text-center">Saved Conversions</h3> */}
+                  {audios.length ? (
+                    <div className="h-auto w-100 p-6">
+                      <ul className="list-group w-100">
+                        {audios.map((audio) => (
+                          <li
+                            className="list-group-item my-3 border rounded d-flex align-items-center justify-content-between p-4 row"
+                            key={audio.id}
+                            style={{ cursor: 'pointer' }}>
+                            <div className="d-flex align-items-center justify-content-between  col-10 p-0">
+                              <span className="text-truncate" title={audio.title}>
+                                {audio.title}
+                              </span>
+                              <Headphones id={audio.id} size={18} onClick={this.playAudio} />
+                            </div>
+                            <MoreVertical className="col-2" size={20} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <div className="h-auto w-100 p-6 d-flex justify-content-center align-items-center">
+                      <p>You have no saved audio</p>
+                    </div>
+                  )}
                 </div>
               )}
               {showModal && (
